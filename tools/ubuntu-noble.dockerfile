@@ -10,7 +10,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 COPY --chmod=755 install_ubuntu_packages.sh /root/install_ubuntu_packages.sh
 
-RUN --mount=type=bind,source=.,target=/root/src/tools <<'INSTALL_PACKAGES'
+RUN <<'INSTALL_PACKAGES'
   set -eu
 
   /root/install_ubuntu_packages.sh
