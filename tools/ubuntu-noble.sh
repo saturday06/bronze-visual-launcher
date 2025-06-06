@@ -9,7 +9,7 @@ dockerfile_path="$PWD/ubuntu-noble.dockerfile"
 
 # 別のフォルダや別のシステムで作業中のdockerイメージと重複しないように
 # それらをまとめたハッシュ値をdockerのタグ名としてビルドをする
-pwd_and_system="$(pwd):$(uname -a)"
+pwd_and_system="$(pwd):$(uname --machine --operating-system)"
 case "$(uname -s)" in
 "Linux")
   pwd_and_system_hash=$(echo "$pwd_and_system" | md5sum | cut -d" " -f 1)

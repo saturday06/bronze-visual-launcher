@@ -59,4 +59,5 @@ SHELL_PROFILE_SCRIPT
   echo | tee -a ~/.profile ~/.bashrc ~/.zshrc
 SETUP_USER_LOCAL_ENVIRONMENT
 
-# https://github.com/saturday06/VRM-Addon-for-Blender/blob/2_15_19/scripts/gui_test_server_start.sh
+COPY --chown=xyzzy:xyzzy --chmod=755 ./ubuntu-noble-entrypoint.sh /home/xyzzy/ubuntu-noble-entrypoint.sh
+ENTRYPOINT ["/home/xyzzy/ubuntu-noble-entrypoint.sh"]

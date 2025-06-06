@@ -6,3 +6,4 @@ set -eux
 cd "$(dirname "$0")"
 
 echo ok
+# https://github.com/saturday06/VRM-Addon-for-Blender/blob/2_15_19/scripts/gui_test_server_start.sh
