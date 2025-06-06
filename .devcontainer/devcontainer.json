@@ -4,7 +4,7 @@
     "dockerfile": "Dockerfile",
     "context": "../tools"
   },
-  "remoteUser": "xyzzy",
+  "remoteUser": "developer",
   "updateContentCommand": "./tools/devcontainer_update_content_command.sh",
   "postAttachCommand": "./tools/devcontainer_post_attach_command.sh",
   "features": {

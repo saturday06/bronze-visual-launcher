@@ -20,18 +20,18 @@ RUN --mount=type=bind,source=.,target=/root/src/tools <<'INSTALL_PACKAGES'
   rm -rf /var/lib/apt/lists/*
 INSTALL_PACKAGES
 
-RUN <<'SETUP_USER'
+RUN <<'SETUP_USER_DEVELOPER'
   set -eu
-  useradd --create-home --user-group --shell /bin/bash xyzzy
-  echo "xyzzy ALL=(root) NOPASSWD:ALL" | tee /etc/sudoers.d/xyzzy
+  useradd --create-home --user-group --shell /bin/bash developer
+  echo "developer ALL=(root) NOPASSWD:ALL" | tee /etc/sudoers.d/developer
   mkdir -p /workspace
-  chown xyzzy:xyzzy /workspace
-SETUP_USER
+  chown developer:developer /workspace
+SETUP_USER_DEVELOPER
 
-USER xyzzy
-WORKDIR /home/xyzzy
+USER developer
+WORKDIR /home/developer
 
-RUN <<'SETUP_USER_LOCAL_ENVIRONMENT'
+RUN <<'SETUP_USER_DEVELOPER_LOCAL_ENVIRONMENT'
   set -eu
 
   cat <<'SHELL_PROFILE_SCRIPT' >>~/.profile
@@ -42,4 +42,4 @@ SHELL_PROFILE_SCRIPT
   # https://docs.astral.sh/uv/getting-started/installation/
   curl --fail --show-error --location https://astral.sh/uv/install.sh | sh
 
-SETUP_USER_LOCAL_ENVIRONMENT
+SETUP_USER_DEVELOPER_LOCAL_ENVIRONMENT
