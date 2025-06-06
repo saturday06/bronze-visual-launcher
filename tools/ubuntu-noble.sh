@@ -33,5 +33,6 @@ if ! docker container inspect "$container_name"; then
   docker run -d -it -v "$PWD:/workspace" --name "$container_name" "$tag_name" /bin/bash
 fi
 
+docker cp "$source_path/ubuntu-noble-entrypoint.sh" "$container_name:/home/xyzzy/ubuntu-noble-entrypoint.sh"
 docker start "$container_name"
 exec docker attach "$container_name"
