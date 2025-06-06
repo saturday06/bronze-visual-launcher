@@ -34,5 +34,4 @@ if ! docker container inspect "$container_name"; then
 fi
 
 docker cp "$source_path/ubuntu-noble-entrypoint.sh" "$container_name:/home/xyzzy/ubuntu-noble-entrypoint.sh"
-docker start "$container_name"
-exec docker attach "$container_name"
+docker start -i "$container_name"
